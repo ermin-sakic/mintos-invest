@@ -14,8 +14,8 @@
 2) The script adjusts the per-LO investments for both primary and secondary markets, given the aggregate ratings and user preference.
  
 Currently, `mintos-invest` crawls the latest per-LO ratings from the following sources: 
-- [Explore P2P] (www.ExploreP2P.com)
-- [P2P-Anlage] (www.P2P-Anlage.de)
+- https://www.explorep2p.com
+- https://www.p2p-anlage.de
 
 
 ## Show me an example!
