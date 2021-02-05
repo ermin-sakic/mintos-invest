@@ -1,13 +1,11 @@
 import pandas as pd
 
 from urllib.request import Request, urlopen
-from config import config
+from config import config as cfg
 
-P2P_ANLAGE_URL = config["P2P_ANLAGE_URL"]
-P2P_EXPLORE_URL = config["P2P_EXPLORE_URL"]
 
 def get_p2p_anlage_ratings():
-    req = Request(P2P_ANLAGE_URL, headers={'User-Agent': 'Mozilla/5.0'})
+    req = Request(cfg["P2P_ANLAGE_URL"], headers={'User-Agent': 'Mozilla/5.0'})
     webpage = urlopen(req).read()
     tables = pd.read_html(webpage) 
  
@@ -26,11 +24,10 @@ def get_p2p_anlage_ratings():
 
 
 def get_p2p_explore_ratings():
-    req = Request(P2P_EXPLORE_URL, headers={'User-Agent': 'Mozilla/5.0'})
+    req = Request(cfg["P2P_EXPLORE_URL"], headers={'User-Agent': 'Mozilla/5.0'})
     webpage = urlopen(req).read()
-
-    tables = pd.read_html(webpage)  # Returns list of all tables on page
-    los_table = tables[1]  # Select table of interest
+    tables = pd.read_html(webpage)
+    los_table = tables[1]
 
     lo_scores = {}
     for lo in los_table.values:
@@ -38,4 +35,5 @@ def get_p2p_explore_ratings():
         lo_score = lo[7]
         lo_scores[lo_name] = lo_score
         print("P2P Explore Rating for {}: {}".format(lo_name, lo_score))
+
     return lo_scores
