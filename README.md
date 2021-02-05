@@ -22,12 +22,18 @@ Currently, `mintos-invest` crawls the latest per-LO ratings from the following s
 
 ## Show me an example!
 
-Python 3 is required to execute the ``main.py``:
+### Requirements
+Python 3 and ``pandas`` are required to run ``main.py``:
+```bash
+pip3 install pandas
+```
+
+### Sample execution
 ```bash
 python3 main.py
 ```
 
-Exemplary output when using the provided default configuration (further below):
+Exemplary output when using the provided configuration:
 
 ```
 Output investment strategy in EUR:
