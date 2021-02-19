@@ -27,7 +27,7 @@ for i in ratings_filtered:
     # Add extra points if positive in P2P Anlage ratings
     if cfg["USE_P2P_ANLAGE"]:
         if i in p2p_anl_ratings:
-            extra_points = (p2p_anl_ratings[i] - cfg["P2P_ANLAGE_MAX_POINTS"] / 2) / cfg["P2P_ANLAGE_MAX_POINTS"] * cfg["THRSH_P2P_ANLAGE_BONUS"]
+            extra_points = (p2p_anl_ratings[i] - cfg["P2P_ANLAGE_MAX_POINTS"] / 2.0) / cfg["P2P_ANLAGE_MAX_POINTS"] * cfg["THRSH_P2P_ANLAGE_BONUS"]
             ratings_filtered[i] += extra_points
             print('P2PAnlage: Updating rating for {} by {:1.2f}'.format(i, extra_points))
 
